@@ -1,0 +1,17 @@
+apiVersion: 1
+
+datasources:
+  - name: db
+    type: postgres
+    url: db:5432
+    user: root
+    secureJsonData:
+      password: 'example'
+    jsonData:
+      database: db
+      sslmode: 'disable' # disable/require/verify-ca/verify-full
+      maxOpenConns: 100
+      maxIdleConns: 100
+      maxIdleConnsAuto: true
+      connMaxLifetime: 14400
+      timescaledb: false
