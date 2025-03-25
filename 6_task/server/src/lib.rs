@@ -14,8 +14,23 @@ mod utils {
         datetime_utc.naive_utc()
     }
 
-    pub fn vec_to_data_proto(vec: Vec<u8>) -> Data {
-        Data::decode(vec.as_slice()).unwrap()
+    pub fn vec_to_data_proto(mut vec: Vec<u8>) -> Result<Data, ()> {
+        if vec.len() > 4 {
+            let mut vec_len: usize = 0 ;
+            for i in (0..4).rev() {
+                vec_len = vec_len << 8;
+                vec_len += vec[i] as usize;
+            }
+            vec = vec[4..].to_owned();
+
+            if vec_len <= vec.len() {
+                return match Data::decode(&vec[..vec_len]) {
+                    Ok(r) => Ok(r),
+                    Err(_) => Err(())
+                }
+            }
+        }
+        Err(())
     }
 }
 
@@ -87,7 +102,10 @@ pub mod listener {
                 let mut buf_reader = BufReader::new(&stream);
                 let mut vec_data = Vec::new();
                 buf_reader.read_to_end(&mut vec_data).unwrap();
-                let data = vec_to_data_proto(vec_data);
+                let data =  match vec_to_data_proto(vec_data) {
+                    Ok(d) => d,
+                    Err(_) => continue
+                };
                 self.db.add_data(data);
 
             }

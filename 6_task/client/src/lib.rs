@@ -67,7 +67,14 @@ impl ESP {
                 Err(_) => {println!("Error"); continue;},
             };
 
-            let vec_data = data.encode_to_vec();
+            let mut vec_proto_data = data.encode_to_vec();
+            let mut vec_data: Vec<u8>= Vec::new(); 
+            let mut vec_len = vec_proto_data.len() as u32;
+            for _ in 0..4 {
+                vec_data.push(vec_len as u8);
+                vec_len = vec_len >> 8;
+            }
+            vec_data.append(&mut vec_proto_data);
             stream.write_all(&vec_data).unwrap();
             stream.flush().unwrap();
 
