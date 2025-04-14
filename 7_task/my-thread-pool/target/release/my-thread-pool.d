@@ -1,1 +1,0 @@
-/home/caimon/Documents/rust-book-examples/7_task/my-thread-pool/target/release/my-thread-pool: /home/caimon/Documents/rust-book-examples/7_task/my-thread-pool/src/lib.rs /home/caimon/Documents/rust-book-examples/7_task/my-thread-pool/src/main.rs

@@ -1,1 +1,0 @@
-searchState.loadedDescShard("my_thread_pool", 0, "A simple thread pool implementation for executing tasks …\nA thread pool that executes submitted tasks using a fixed …\nExecutes a task in the thread pool.\nReturns the argument unchanged.\nReturns the argument unchanged.\nCalls <code>U::from(self)</code>.\nCalls <code>U::from(self)</code>.\nCreate a new ThreadPool.")
