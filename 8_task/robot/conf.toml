@@ -1,0 +1,6 @@
+id = 1
+x = -1
+y = 1
+addr = '127.0.0.1:7878' 
+port = 7880
+video = '-i test.webm'

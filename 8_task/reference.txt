@@ -1,0 +1,2 @@
+ffmpeg -f v4l2 -i /dev/video0 -preset:v ultrafast -tune zerolatency -c:v libx264  -intra-refresh 1 -f mpegts -b:v 3M - | ffplay -fflags nobuffer -flags low_delay -
+

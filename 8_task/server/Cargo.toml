@@ -1,0 +1,16 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bytemuck = "1.22.0"
+chrono = "0.4.40"
+eframe = "0.31.1"
+egui = "0.31.1"
+ffmpeg-sidecar = "2.0.5"
+prost = "0.13.5"
+rayon = "1.10.0"
+
+[build-dependencies]
+prost-build = "0.13.5"

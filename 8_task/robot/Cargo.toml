@@ -1,0 +1,15 @@
+[package]
+name = "robot"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ffmpeg-sidecar = "2.0.5"
+prost = "0.13.5"
+rayon = "1.10.0"
+serde = { version = "1.0.219", features = ["derive"] }
+toml = "0.8.21"
+
+[build-dependencies]
+prost-build = "0.13.5"
+
